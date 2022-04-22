@@ -72,7 +72,7 @@ void mem_flush(const void *p, unsigned int allocation_size)
 
   if (p == NULL || allocation_size <= 0)
     return;
-
+#if !(_MSC_VER && !__INTEL_COMPILER)
   for (i = 0; i < allocation_size; i += cache_line) {
     __asm__ volatile("clflush (%0)\n\t"
                  :
@@ -84,6 +84,7 @@ void mem_flush(const void *p, unsigned int allocation_size)
                 :
                 :
                 : "memory");
+#endif
 }
 
 /*************************************************************************/
