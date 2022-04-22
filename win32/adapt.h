@@ -11,4 +11,6 @@ typedef DWORD pid_t;
 
 pid_t getpid(void);
 
+#define __asm__ __asm
+
 #endif  /* _WIN32_ADAPT_H_ */
