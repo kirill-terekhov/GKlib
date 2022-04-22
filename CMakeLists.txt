@@ -9,14 +9,8 @@ unset(abs)
 include(GKlibSystem.cmake)
 
 include_directories(".")
-if(MSVC)
-  include_directories("win32")
-  file(GLOB win32_sources RELATIVE "win32" "*.c")
-else(MSVC)
-  set(win32_sources, "")
-endif(MSVC)
 
-add_library(GKlib ${GKlib_sources} ${win32_sources})
+add_library(GKlib ${GKlib_sources})
 
 if(UNIX)
   target_link_libraries(GKlib m)
