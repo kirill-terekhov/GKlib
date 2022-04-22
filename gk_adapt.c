@@ -3,7 +3,7 @@
 \brief Implementation of Win32 adaptation of libc functions
 */
 #if defined(_WIN32)
-#include "adapt.h"
+#include "gk_adapt.h"
 
 pid_t getpid(void)
 {
